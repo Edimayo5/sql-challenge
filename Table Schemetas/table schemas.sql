@@ -7,11 +7,11 @@ CREATE TABLE Title (
 CREATE TABLE Employees (
     emp_no INT   NOT NULL,
     emp_title_id VARCHAR   NOT NULL,
-    birth_date DATE   NOT NULL,
+    birth_date VARCHAR   NOT NULL,
     first_name VARCHAR   NOT NULL,
     last_name VARCHAR   NOT NULL,
     sex CHAR   NOT NULL,
-    hire_date DATE   NOT NULL,
+    hire_date VARCHAR   NOT NULL,
     PRIMARY KEY (emp_no),
     FOREIGN KEY(emp_title_id) REFERENCES Title (title_id)
      );
@@ -33,10 +33,9 @@ SELECT * FROM Title
 SELECT * FROM Employees
 
 CREATE TABLE Salaries (
-    salary_id INT   NOT NULL,
     emp_no INT   NOT NULL,
     salary INT   NOT NULL,
-    PRIMARY KEY (salary_id),
+    PRIMARY KEY (emp_no, salary),
     FOREIGN KEY (emp_no) REFERENCES Employees (emp_no)
 );
 
